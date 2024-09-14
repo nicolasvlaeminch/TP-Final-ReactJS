@@ -1,0 +1,38 @@
+/* Navbar.module.css */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    padding: 40px 0px;
+}
+
+.logo {
+    font-size: 2rem;
+    color: black;
+    border: 2px solid black; /* Añade un borde de color blanco al logo */
+    border-radius: 0; /* Asegúrate de que los bordes no sean redondeados */
+    padding: 20px; /* Opcional: Ajusta el espaciado interno si es necesario */
+    margin-right: 200px;
+}
+
+.logo:hover {
+    color: #2a728e;
+    border-color: #2a728e;
+}
+
+.button {
+    font-size: 1.2rem;
+    border: 2px solid #2a728e;
+    border-radius: 20px; /* Ajusta el valor para un marco redondo */
+    color: #2a728e;
+    padding: 10px 20px; /* Ajusta el espaciado interno si es necesario */
+    background-color: transparent; /* Asegúrate de que el fondo sea transparente por defecto */
+    margin-left: 200px;
+}
+
+.button:hover {
+    background-color: #2a728e;
+    border-color: white;
+    color: white;
+}

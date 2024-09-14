@@ -1,0 +1,19 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 200px;
+}
+
+.homeText {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 45px;
+    color: black;
+}
+
+p {
+    font-size: 20px;
+    color: rgb(95, 95, 95);
+}
