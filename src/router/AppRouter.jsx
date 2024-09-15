@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from '../pages/Login';
-import Home from '../pages/Home';
-import Employees from '../pages/Employees';
-import PublicLayout from '../layouts/PublicLayout';
-import PrivateLayout from '../layouts/PrivateLayout';
+import Login from '../pages/Login/Login';
+import Home from '../pages/Home/Home';
+import Employees from '../pages/Employees/Employees';
+import PublicLayout from '../layouts/PublicLayout/PublicLayout';
+import PrivateLayout from '../layouts/PrivateLayout/PrivateLayout';
 import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => (

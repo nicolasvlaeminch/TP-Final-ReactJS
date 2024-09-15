@@ -1,38 +1,102 @@
 /* Navbar.module.css */
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Distribuye el espacio entre logo y botón */
     align-items: center;
-    width: 100vw;
-    padding: 40px 0px;
+    width: 100%;
+    padding: 35px; /* Espaciado interno general */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 32px; /* 2rem = 32px (asumiendo 1rem = 16px) */
     color: black;
-    border: 2px solid black; /* Añade un borde de color blanco al logo */
-    border-radius: 0; /* Asegúrate de que los bordes no sean redondeados */
-    padding: 20px; /* Opcional: Ajusta el espaciado interno si es necesario */
-    margin-right: 200px;
+    border: 2px solid black;
+    border-radius: 0;
+    padding: 10px;
+    margin-left: 20px; /* Añade margen a la izquierda del logo */
 }
 
 .logo:hover {
-    color: #2a728e;
-    border-color: #2a728e;
+    color: #22b9ce;
+    border-color: #22b9ce;
 }
 
 .button {
-    font-size: 1.2rem;
-    border: 2px solid #2a728e;
-    border-radius: 20px; /* Ajusta el valor para un marco redondo */
-    color: #2a728e;
-    padding: 10px 20px; /* Ajusta el espaciado interno si es necesario */
-    background-color: transparent; /* Asegúrate de que el fondo sea transparente por defecto */
-    margin-left: 200px;
+    font-size: 19.2px; /* 1.2rem = 19.2px */
+    border: 2px solid #22b9ce;
+    border-radius: 20px;
+    color: #22b9ce;
+    padding: 10px 20px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transición suave */
+    margin-right: 20px; /* Añade margen a la derecha del botón */
 }
 
 .button:hover {
-    background-color: #2a728e;
+    background-color: #22b9ce;
     border-color: white;
     color: white;
+}
+
+@media (min-width: 1920px) {
+    .navbar {
+        padding: 50px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1360px) {
+    .navbar {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .navbar {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .button {
+        margin-top: 10px; /* Añadido margen superior para separación cuando en columna */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 24px; /* 1.5rem = 24px */
+        margin-left: 15px; /* Ajustado margen a la izquierda en pantallas más pequeñas */
+    }
+
+    .button {
+        font-size: 16px; /* 1rem = 16px */
+        padding: 8px 16px;
+        margin-right: 15px; /* Ajustado margen a la derecha en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 375px) {
+    .logo {
+        font-size: 19.2px; /* 1.2rem = 19.2px */
+        margin-left: 10px; /* Ajustado margen a la izquierda en pantallas más pequeñas */
+    }
+
+    .button {
+        font-size: 14.4px; /* 0.9rem = 14.4px */
+        padding: 6px 12px;
+        margin-right: 10px; /* Ajustado margen a la derecha en pantallas más pequeñas */
+    }
 }
