@@ -20,19 +20,19 @@
 }
 
 /* Estilo para el botón de submit */
-.loginForm button {
+#loginButton {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     color: #ffffff;
     cursor: pointer;
     font-size: 16px;
-
+    background-color: black;
     border: 2px solid #22b9ce;
     border-radius: 20px;
 }
 
-.loginForm button:hover {
+#loginButton:hover {
     color: white;
     background-color: #22b9ce;
     border: 2px solid black;

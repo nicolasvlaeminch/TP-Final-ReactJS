@@ -5,15 +5,19 @@ const useForm = (initialValues) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues({
-      ...values,
+    setValues((prevValues) => ({
+      ...prevValues,
       [name]: value,
-    });
+    }));
+  };
+
+  const setFormValues = (newValues) => {
+    setValues(newValues);
   };
 
   const resetForm = () => setValues(initialValues);
 
-  return [values, handleChange, resetForm];
+  return [values, handleChange, setFormValues, resetForm];
 };
 
 export default useForm;

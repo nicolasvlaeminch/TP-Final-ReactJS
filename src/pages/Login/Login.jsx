@@ -28,7 +28,7 @@ const Login = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.loginForm}>
-      <h1>¡Bienvenid@!</h1>
+      <h1>¡Bienvenido!</h1>
       <input
         type="text"
         name="username"
@@ -45,7 +45,7 @@ const Login = () => {
         onChange={handleChange}
         required
       />
-      <button type="submit">Iniciar Sesión</button>
+      <button type="submit" id={styles.loginButton}>Iniciar Sesión</button>
       {error && <p>{error}</p>}
     </form>
   );
