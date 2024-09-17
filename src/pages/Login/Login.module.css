@@ -1,5 +1,3 @@
-/* components/Login.module.css */
-
 .loginForm {
   display: flex;
   flex-direction: column;
@@ -13,5 +11,5 @@
 }
 
 .loginForm h1 {
-    color: black;
+  color: black;
 }

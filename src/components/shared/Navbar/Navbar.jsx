@@ -1,8 +1,7 @@
-// Navbar.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import useNavButton from '../../../hooks/useNavButton';
-import styles from './Navbar.module.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import useNavButton from "../../../hooks/useNavButton";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const { buttonText, buttonLink } = useNavButton();

@@ -1,74 +1,74 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
-  .modalContent {
-    background-color: white;
-    padding: 50px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 700px;
-  }
-  
-  .modalContent h2 {
-    margin-top: 0;
-    color: black;
-  }
-  
-  .modalContent form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  input[type="textModal"],
-  input[type="email"],
-  input[type="date"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    max-width: 100%;
-    background-color: white;
-    color: black;
-  }
-  
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
+.modalContent {
+  background-color: white;
+  padding: 50px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 700px;
+}
 
-  button[type="submit"] {
-    background-color: #22b9ce;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #34929e;
-  }
-  
-  button.cancelButton {
-    background-color: #dc3545;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  button.cancelButton:hover {
-    background-color: #c82333;
-  }
+.modalContent h2 {
+  margin-top: 0;
+  color: black;
+}
+
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="textModal"],
+input[type="email"],
+input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 100%;
+  background-color: white;
+  color: black;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+button[type="submit"] {
+  background-color: #22b9ce;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #34929e;
+}
+
+button.cancelButton {
+  background-color: #dc3545;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button.cancelButton:hover {
+  background-color: #c82333;
+}

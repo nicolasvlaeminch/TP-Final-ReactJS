@@ -1,6 +1,6 @@
-import React from 'react';
-import HomeText from '../../components/HomeText/HomeText';
-import styles from './Home.module.css'; // Asegúrate de usar CSS Modules importando como un objeto
+import React from "react";
+import { HomeText } from "../../components";
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (

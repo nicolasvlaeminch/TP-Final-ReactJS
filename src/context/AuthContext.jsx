@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -7,9 +7,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:5000/users');
+      const response = await fetch("http://localhost:5000/users");
       const users = await response.json();
-      const user = users.find(user => user.username === username && user.password === password);
+      const user = users.find(
+        (user) => user.username === username && user.password === password
+      );
       if (user) {
         setIsAuthenticated(true);
         return true;
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }) => {
         return false;
       }
     } catch (error) {
-      console.error('Error during authentication:', error);
+      console.error("Error during authentication:", error);
       return false;
     }
   };
