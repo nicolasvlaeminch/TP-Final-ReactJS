@@ -8,14 +8,13 @@
 }
 
 body.home {
-  background-image: url("./assets/bg-home.png");
+  background-image: url("./assets/bg-login-employees.png");
   background-size: cover;
-  background-position: bottom;
   background-repeat: no-repeat;
 }
 
 body.login, body.employees {
-  background-image: url("./assets/bg-login-employees.png"); /* Fondo compartido para login y employees */
+  background-image: url("./assets/bg-login-employees.png");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -49,3 +48,12 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+@media (min-width: 1280px) {
+  body.home {
+    background-image: url("./assets/bg-home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+

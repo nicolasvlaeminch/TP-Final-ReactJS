@@ -1,7 +1,11 @@
+// components/Login.jsx
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import styles from './Login.module.css';
+import LoginInput from '../../components/LoginInput/LoginInput';
+import LoginButton from '../../components/LoginButton/LoginButton';
+import LoginError from '../../components/LoginError/LoginError';
+import styles from './Login.module.css'; // Asegúrate de usar CSS Modules importando como un objeto
 
 const Login = () => {
   const { login } = useAuth();
@@ -29,24 +33,22 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.loginForm}>
       <h1>¡Bienvenido!</h1>
-      <input
-        type="text"
+      <LoginInput
         name="username"
         placeholder="Usuario"
         value={formValues.username}
         onChange={handleChange}
-        required
+        type="text"
       />
-      <input
-        type="password"
+      <LoginInput
         name="password"
         placeholder="Contraseña"
         value={formValues.password}
         onChange={handleChange}
-        required
+        type="password"
       />
-      <button type="submit" id={styles.loginButton}>Iniciar Sesión</button>
-      {error && <p>{error}</p>}
+      <LoginButton>Iniciar Sesión</LoginButton>
+      <LoginError message={error} />
     </form>
   );
 };

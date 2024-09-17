@@ -1,3 +1,4 @@
+// index.js
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import AppRouter from './router/AppRouter'; // Asegúrate de que la ruta de importación sea correcta

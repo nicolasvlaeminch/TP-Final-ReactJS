@@ -1,0 +1,27 @@
+.homeText {
+    padding: 0 20px;
+}
+
+.homeText h1 {
+    color: #ffffff;
+    font-size: 3vw; /* Tamaño de fuente basado en el ancho de la ventana */
+    font-weight: bold;
+    letter-spacing: 4px; /* Ajusta el valor según sea necesario */
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
+@media (min-width: 1280px) {
+    .homeText {
+        margin-right: 50vh;
+    }
+}  
+@media (max-width: 768px) {
+    .homeText h1 {
+        font-size: 5vw;
+    }
+
+    .homeText {
+        padding: 0 10px;
+        text-align: center;
+    }    
+}

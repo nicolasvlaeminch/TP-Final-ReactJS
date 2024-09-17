@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/Login/Login';
 import Home from '../pages/Home/Home';
 import Employees from '../pages/Employees/Employees';
@@ -24,6 +24,9 @@ const AppRouter = () => (
           </PrivateRoute>
         } />
       </Route>
+
+      {/* Ruta para manejar rutas no encontradas */}
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   </Router>
 );

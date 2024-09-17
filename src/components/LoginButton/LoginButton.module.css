@@ -1,0 +1,18 @@
+#buttonLogin {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: black;
+    border: 2px solid #22b9ce;
+    border-radius: 20px;
+}
+
+#buttonLogin:hover {
+    color: white;
+    background-color: #22b9ce;
+    border: 2px solid black;
+    border-radius: 20px;
+}

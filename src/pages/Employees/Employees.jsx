@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import employeeService from '../../store/employeeService';
 import useForm from '../../hooks/useForm';
+import EmployeeTable from '../../components/EmployeeTable/EmployeeTable';
+import EmployeeModal from '../../components/EmployeeModal/EmployeeModal';
+import Pagination from '../../components/Pagination/Pagination';
 import styles from './Employees.module.css';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { isPositiveInteger, isDuplicateNroDocumento, isDuplicateEmail, isAlphabetic } from '../../helpers/validation';
 
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
@@ -49,14 +52,41 @@ const Employees = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const { nombre, apellido, nroDocumento, email } = formValues;
+
+    // Verifica que todos los campos estén llenos
     if (Object.values(formValues).every(value => value)) {
+      if (!isAlphabetic(nombre)) {
+        alert('El nombre debe contener solo letras.');
+        return;
+      }
+      if (!isAlphabetic(apellido)) {
+        alert('El apellido debe contener solo letras.');
+        return;
+      }
+
+      if (!isPositiveInteger(nroDocumento)) {
+        alert('El número de documento debe ser un entero positivo.');
+        return;
+      }
+
+      if (isDuplicateNroDocumento(nroDocumento, employees, isEditing ? editEmployee.id : null)) {
+        alert('El número de documento ya existe.');
+        return;
+      }
+
+      if (isDuplicateEmail(email, employees, isEditing ? editEmployee.id : null)) {
+        alert('El correo electrónico ya está en uso.');
+        return;
+      }
+
       if (isEditing) {
         updateEmployee(editEmployee.id, formValues);
       } else {
         addEmployee(formValues);
       }
     } else {
-      alert('Please fill in all fields.');
+      alert('Por favor, complete todos los campos.');
     }
   };
 
@@ -94,126 +124,33 @@ const Employees = () => {
     return employees.slice(startIndex, endIndex);
   };
 
-  const handleNextPage = () => {
-    if ((currentPage * employeesPerPage) < employees.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
   return (
     <div className={styles.employeesContainer}>
       <button className={styles.addButton} onClick={handleOpenModal}>Registrar empleado</button>
 
       <div className={styles.tableContainer}>
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Nro Documento</th>
-              <th>Email</th>
-              <th>Fecha Nacimiento</th>
-              <th>Fecha Ingreso</th>
-              <th>Operaciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {getCurrentEmployees().map((employee) => (
-              <tr key={employee.id}>
-                <td>{employee.nombre}</td>
-                <td>{employee.apellido}</td>
-                <td>{employee.nroDocumento}</td>
-                <td>{employee.email}</td>
-                <td>{employee.fechaNacimiento}</td>
-                <td>{employee.fechaIngreso}</td>
-                <td>
-                  <button onClick={() => handleEditClick(employee)} aria-label="Edit">
-                    <FaEdit />
-                  </button>
-                  <button onClick={() => deleteEmployee(employee.id)} aria-label="Delete">
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <EmployeeTable
+          employees={getCurrentEmployees()}
+          onEditClick={handleEditClick}
+          onDeleteClick={deleteEmployee}
+        />
       </div>
 
-      <div className={styles.pagination}>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-          <i className="fas fa-chevron-left"></i>
-        </button>
-        <span>Página {currentPage}</span>
-        <button onClick={handleNextPage} disabled={(currentPage * employeesPerPage) >= employees.length}>
-          <i className="fas fa-chevron-right"></i>
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalItems={employees.length}
+        itemsPerPage={employeesPerPage}
+        onPageChange={setCurrentPage}
+      />
 
       {isModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
-            <h2>{isEditing ? 'Editar empleado' : 'Registrar empleado'}</h2>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="nombre"
-                value={formValues.nombre}
-                onChange={handleChange}
-                placeholder="Nombre"
-                required
-              />
-              <input
-                type="text"
-                name="apellido"
-                value={formValues.apellido}
-                onChange={handleChange}
-                placeholder="Apellido"
-                required
-              />
-              <input
-                type="text"
-                name="nroDocumento"
-                value={formValues.nroDocumento}
-                onChange={handleChange}
-                placeholder="Nro Documento"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                value={formValues.email}
-                onChange={handleChange}
-                placeholder="Email"
-                required
-              />
-              <input
-                type="date"
-                name="fechaNacimiento"
-                value={formValues.fechaNacimiento}
-                onChange={handleChange}
-                placeholder="Fecha de Nacimiento"
-                required
-              />
-              <input
-                type="date"
-                name="fechaIngreso"
-                value={formValues.fechaIngreso}
-                onChange={handleChange}
-                placeholder="Fecha de Ingreso"
-                required
-              />
-              <button type="submit">{isEditing ? 'Actualizar' : 'Registrar'}</button>
-              <button type="button" className={styles.cancelButton} onClick={handleCloseModal}>Cancelar</button>
-            </form>
-          </div>
-        </div>
+        <EmployeeModal
+          isEditing={isEditing}
+          formValues={formValues}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleClose={handleCloseModal}
+        />
       )}
     </div>
   );
