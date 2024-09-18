@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./LoginButton.module.css"; // Asegúrate de crear este archivo CSS también
+import styles from "./LoginButton.module.css";
 
 const LoginButton = ({ children, onClick }) => {
   return (

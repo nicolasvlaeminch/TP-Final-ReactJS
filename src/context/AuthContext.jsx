@@ -1,38 +1,18 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
+import useAuth from "../hooks/useAuth";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const login = async (username, password) => {
-    try {
-      const response = await fetch("http://localhost:5000/users");
-      const users = await response.json();
-      const user = users.find(
-        (user) => user.username === username && user.password === password
-      );
-      if (user) {
-        setIsAuthenticated(true);
-        return true;
-      } else {
-        return false;
-      }
-    } catch (error) {
-      console.error("Error during authentication:", error);
-      return false;
-    }
-  };
-
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
+  const { isLogged, onLogin, onLogout, loading, error } = useAuth();
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ isLogged, onLogin, onLogout, loading, error }}
+    >
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuthContext = () => useContext(AuthContext);

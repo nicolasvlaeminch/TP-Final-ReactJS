@@ -1,13 +1,19 @@
-import React, { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 import Login from "./Login";
 
 const LoginContainer = () => {
-  const { login } = useAuth();
+  const { isLogged, onLogin } = useAuthContext();
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (isLogged) {
+      navigate("/home");
+    }
+  }, [isLogged, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,11 +22,12 @@ const LoginContainer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     const { username, password } = formValues;
-    const success = await login(username, password);
-    if (success) {
-      setError("");
-      navigate("/employees");
+    await onLogin(username, password);
+
+    if (isLogged) {
+      navigate("/home");
     } else {
       setError("Usuario o contraseña incorrectos");
     }

@@ -9,7 +9,11 @@ const PrivateLayout = () => {
   useEffect(() => {
     document.body.classList.remove("home", "login", "employees");
 
-    document.body.classList.add("login");
+    if (location.pathname === "/home") {
+      document.body.classList.add("home");
+    } else if (location.pathname === "/employees") {
+      document.body.classList.add("employees");
+    }
   }, [location.pathname]);
 
   return (

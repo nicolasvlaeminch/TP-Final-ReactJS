@@ -57,7 +57,6 @@ const EmployeesContainer = () => {
 
     const { nombre, apellido, nroDocumento, email } = formValues;
 
-    // Verifica que todos los campos estén llenos
     if (Object.values(formValues).every((value) => value)) {
       if (!isAlphabetic(nombre)) {
         alert("El nombre debe contener solo letras.");
@@ -129,7 +128,6 @@ const EmployeesContainer = () => {
     resetForm();
   };
 
-  // Paginación
   const totalItems = employees.length;
   const totalPages = Math.ceil(totalItems / employeesPerPage);
 
@@ -166,9 +164,9 @@ const EmployeesContainer = () => {
       currentPage={currentPage}
       totalItems={totalItems}
       itemsPerPage={employeesPerPage}
-      onPageChange={setCurrentPage} // Pasar la función de cambio de página
-      onNextPage={handleNextPage} // Pasar la función de siguiente página
-      onPreviousPage={handlePreviousPage} // Pasar la función de página anterior
+      onPageChange={setCurrentPage}
+      onNextPage={handleNextPage}
+      onPreviousPage={handlePreviousPage}
     />
   );
 };

@@ -1,15 +1,17 @@
 import { useLocation } from 'react-router-dom';
+import useAuth from './useAuth';
 
 const useNavButton = () => {
     const location = useLocation();
+    const { isLogged } = useAuth();
 
-    let buttonText = 'INGRESAR';
-    let buttonLink = '/login';
+    let buttonText = isLogged ? 'CERRAR SESIÓN' : 'INGRESAR';
+    let buttonLink = isLogged ? '/' : '/login';
 
     switch (location.pathname) {
         case '/':
-            buttonText = 'I N G R E S A R';
-            buttonLink = '/login';
+            buttonText = isLogged ? 'H O M E' : 'I N G R E S A R';
+            buttonLink = isLogged ? '/home' : '/login';
             break;
 
         case '/login':
@@ -17,14 +19,15 @@ const useNavButton = () => {
             buttonLink = '/';
             break;
 
-        case '/employees':
-            buttonText = 'CERRAR SESIÓN';
-            buttonLink = '/';
+        case '/home':
+            buttonText = 'E M P L E A D O S';
+            buttonLink = isLogged ? '/employees' : '/login';
             break;
 
-        default:
-            buttonText = 'INGRESAR';
-            buttonLink = '/login';
+        case '/employees':
+            buttonText = 'H O M E';
+            buttonLink = '/home';
+            break;
     }
 
     return { buttonText, buttonLink };
