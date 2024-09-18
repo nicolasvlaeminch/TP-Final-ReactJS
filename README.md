@@ -1,6 +1,6 @@
 <h1 align = "center">Gestión de empleados 🙋‍♂️</h1>
 <div align = "center">
-    <img src='https://i.postimg.cc/KjVyfk14/Sin-t-tuloa.png' border='0' alt='employees' width='800' height='auto'/>
+    <img src='https://i.ibb.co/tLFWkQM/bg-employees.png' border='0' alt='employees' width='800' height='auto'/>
 </div>
 
 # Descripción de la Aplicación
