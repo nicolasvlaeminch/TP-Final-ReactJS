@@ -6,3 +6,7 @@
     border-radius: 4px;
     background-color: white;
 }
+
+.input:focus {
+    color: black;
+}
