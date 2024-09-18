@@ -1,8 +1,25 @@
-# React + Vite
+<h1 align = "center">Gestión de empleados 🙋‍♂️</h1>
+<div align = "center">
+    <img src='https://i.postimg.cc/KjVyfk14/Sin-t-tuloa.png' border='0' alt='employees' width='800' height='auto'/>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Descripción de la Aplicación
 
-Currently, two official plugins are available:
+Aplicación web de gestión de empleados, desarrollada con React JS y Vite, proporciona una solución completa para la administración del personal. Incluye autenticación de usuarios para proteger el acceso a funciones críticas, gestión de empleados que permite alta, baja y modificación de registros, y un listado de empleados obtenido de un mock de API para una visualización clara. Las rutas protegidas aseguran que solo usuarios autenticados puedan acceder a páginas sensibles, mientras que los formularios con validación, manejados por un hook personalizado, garantizan la entrada de datos precisa y fluida. La aplicación distingue entre layouts públicos y privados para una navegación segura y organizada, utiliza el patrón Container para separar lógica de negocio de la presentación, y se beneficia de variables de entorno en Vite para una configuración flexible de la API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Instalación y configuración
+
+Para instalar y configurar la aplicación, clona el repositorio con el comando:
+
+- .git clone https://github.com/nicolasvlaeminch/TP-Final-ReactJS.git
+
+Navega al directorio del proyecto y ejecuta npm install para instalar las dependencias. Luego, inicia el proyecto con el comando npm run dev, luego para configurar json-server, instala el paquete con npm install json-server, luego añade el siguiente script en package.json bajo scripts:
+
+- "start": "json-server --watch db.json --port 5000"
+
+Finalmente, inicia json-server con npm start.
+
+# Usuario administrador para la web
+
+- Usuario: admin
+- Contraseña: admin.
