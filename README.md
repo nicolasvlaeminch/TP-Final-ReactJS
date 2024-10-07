@@ -22,4 +22,4 @@ Finalmente, inicia json-server con npm start.
 # Usuario administrador para la web
 
 - Usuario: admin
-- Contraseña: admin.
+- Contraseña: admin
